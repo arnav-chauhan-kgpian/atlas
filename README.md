@@ -16,6 +16,11 @@
 
 ---
 
+> [!CAUTION]
+> **Performance Warning**: Atlas is a precision engine, but its output quality is strictly dependent on effective hyperparameter tuning. Users must proactively adjust learning rates, batch sizes, and model dimensions (QGa heads, expert counts) to suit their specific data. Using the basic default configuration for complex tasks *will* result in sub-par performance and poor convergence. Tuning is not optional; it is fundamental.
+
+---
+
 ## ✨ Enterprise-Grade LLM Infrastructure
 
 Atlas is a high-performance, decoder-only Transformer framework engineered for the full model lifecycle. While most implementations provide only the base model, Atlas delivers an integrated pipeline from raw data to RLHF-aligned production agents.
@@ -48,7 +53,7 @@ flowchart LR
     end
 
     subgraph RM["3 · Reward Model"]
-        E["Preference\nPairs"] --> F["Encoder →\nScalar Reward"]
+        E["Preference\nPairs"] --> F["Encoder →Scalar Reward"]
     end
 
     subgraph RLHF["4 · Align"]
