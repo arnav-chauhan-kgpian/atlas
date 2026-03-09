@@ -1,0 +1,18 @@
+# Atlas — PPO Alignment Configuration
+# Usage: atlas-ppo --config configs/ppo.yaml --policy-ckpt runs/sft/model_last.pt --reward-ckpt runs/rm/model_last.pt
+
+rl:
+  algorithm: ppo
+  out_dir: runs/ppo
+  block_size: 256
+  batch_size: 4
+  resp_len: 64
+  steps: 100
+  clip_ratio: 0.2
+  kl_coef: 0.01
+  vf_coef: 0.5
+  ent_coef: 0.0
+  gamma: 1.0
+  lam: 0.95
+  lr: 1e-5
+  seed: 42

@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atlas"
+version = "0.1.0"
+description = "A production-grade LLM framework built from scratch with modern techniques."
+readme = "README.md"
+license = {text = "GPL-3.0"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Arnav Chauhan"},
+]
+keywords = ["llm", "transformer", "pytorch", "rlhf", "ppo", "grpo", "from-scratch"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "torch>=2.1.0",
+    "tokenizers>=0.15.0",
+    "datasets>=2.14.0",
+    "tensorboard>=2.14.0",
+    "wandb",
+    "pyyaml>=6.0",
+    "tqdm>=4.60.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/arnav-chauhan-kgpian/llm_from_scratch"
+Repository = "https://github.com/arnav-chauhan-kgpian/llm_from_scratch"
+Issues = "https://github.com/arnav-chauhan-kgpian/llm_from_scratch/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+]
+
+[project.scripts]
+atlas-train = "atlas.cli.pretrain:main"
+atlas-sft = "atlas.cli.finetune:main"
+atlas-rm = "atlas.cli.reward:main"
+atlas-ppo = "atlas.cli.rl:main_ppo"
+atlas-grpo = "atlas.cli.rl:main_grpo"
+atlas-sample = "atlas.cli.sample:main"
+
+[tool.setuptools.packages.find]
+include = ["atlas*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"

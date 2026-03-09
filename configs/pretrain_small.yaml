@@ -1,0 +1,33 @@
+# Atlas — Small Pretraining Config
+# Usage: atlas-train --config configs/pretrain_small.yaml --data data/tiny.txt
+
+model:
+  vocab_size: 32000
+  block_size: 256
+  n_layer: 6
+  n_head: 8
+  n_embd: 512
+  n_kv_head: 4            # GQA: 4 KV heads / 8 Q heads
+  use_rmsnorm: true
+  use_swiglu: true
+  rope: true
+  max_pos: 4096
+  dropout: 0.0
+
+train:
+  steps: 2000
+  batch_size: 32
+  lr: 3e-4
+  weight_decay: 0.1
+  grad_clip: 1.0
+  warmup_steps: 20
+  grad_accum_steps: 4
+  mixed_precision: false
+  tokenizer_type: bpe
+  log_backend: tensorboard
+  log_every: 50
+  save_every: 200
+  sample_every: 200
+  sample_tokens: 64
+  keep_last_k: 2
+  seed: 42

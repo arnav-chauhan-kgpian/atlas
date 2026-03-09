@@ -1,0 +1,19 @@
+# Atlas — SFT Configuration
+# Usage: atlas-sft --config configs/sft.yaml --ckpt runs/pretrain/model_last.pt
+
+model:
+  vocab_size: 32000
+  block_size: 256
+  n_layer: 6
+  n_head: 8
+  n_embd: 512
+  use_rmsnorm: true
+  use_swiglu: true
+
+sft:
+  steps: 200
+  batch_size: 8
+  lr: 3e-4
+  tokenizer_type: bpe
+  out_dir: runs/sft
+  seed: 42
