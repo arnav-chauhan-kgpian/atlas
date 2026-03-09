@@ -1,7 +1,7 @@
 <p align="center">
   <h1 align="center">⚛️ Atlas</h1>
   <p align="center">
-    <strong>A production-grade LLM framework built entirely from scratch in PyTorch.</strong>
+    <strong>An experimental LLM framework built entirely from scratch in PyTorch.</strong>
   </p>
   <p align="center">
     Covers the <em>full lifecycle</em>: Pretraining → SFT → Reward Modeling → RLHF (PPO & GRPO) → Inference
