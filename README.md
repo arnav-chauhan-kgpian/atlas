@@ -43,26 +43,26 @@ Atlas is a high-performance, decoder-only Transformer framework engineered for t
 
 ```mermaid
 flowchart LR
-    subgraph PRETRAIN["1 · Pretrain"]
-        A["Raw Text"] --> B["Tokenizer\n(Byte / BPE)"]
-        B --> C["Transformer LM\n(GQA · RoPE · SwiGLU)"]
+    subgraph PRETRAIN["1 - Pretrain"]
+        A["Raw Text"] --> B["Tokenizer (Byte / BPE)"]
+        B --> C["Transformer LM (GQA / RoPE / SwiGLU)"]
     end
 
-    subgraph SFT["2 · Fine-Tune"]
-        C --> D["SFT Trainer\n(Prompt Masking\n+ Curriculum)"]
+    subgraph SFT["2 - Fine-Tune"]
+        C --> D["SFT Trainer (Prompt Masking + Curriculum)"]
     end
 
-    subgraph RM["3 · Reward Model"]
-        E["Preference\nPairs"] --> F["Encoder →Scalar Reward"]
+    subgraph RM["3 - Reward Model"]
+        E["Preference Pairs"] --> F["Encoder -> Scalar Reward"]
     end
 
-    subgraph RLHF["4 · Align"]
+    subgraph RLHF["4 - Align"]
         D --> G["PPO / GRPO"]
         F --> G
     end
 
-    subgraph INFER["5 · Generate"]
-        G --> H["KV-Cache\nInference"]
+    subgraph INFER["5 - Generate"]
+        G --> H["KV Cache Inference"]
     end
 
     style PRETRAIN fill:#1e293b,stroke:#3b82f6,color:#e2e8f0
